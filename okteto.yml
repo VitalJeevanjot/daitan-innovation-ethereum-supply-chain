@@ -1,0 +1,7 @@
+name: daitan-eth-scm
+image: registry.cloud.okteto.net/sawtooth-genievot/daitan-eth-scm:okteto
+command:
+- bash
+workdir: /usr/src/app
+forward:
+  - 8545:8545
