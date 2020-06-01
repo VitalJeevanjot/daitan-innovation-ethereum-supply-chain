@@ -40,7 +40,7 @@ function populateDetails (item) {
                 } else {
                     console.log(result)
                     if (result == "0x0000000000000000000000000000000000000000") {
-                        console.log("Address Zero, register part")
+                        console.log("Address Zero, registering part")
                         window.co.methods.addOwnership(0, item).send({ from: window.accounts[0], gas: 1000000 }, function (error, result) {
                             if (error) {
                                 console.log(error)
@@ -189,7 +189,7 @@ function getMultipleActivePart () {
 
 async function init_web3 () {
     //Web3 init
-    if (typeof web3 != 'undefined') {
+    if (typeof web3 != 'undefined' && window.ethereum) {
         web3 = new Web3(window.ethereum) // what Metamask injected 
         console.log("Injecting metamask")
     } else {
