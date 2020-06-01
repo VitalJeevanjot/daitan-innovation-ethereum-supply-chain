@@ -1,4 +1,5 @@
-function toggleActive(element) {
+
+function toggleActive (element) {
     //Toggle class
     if (element.classList.contains("active")) {
         element.classList.remove("active")
@@ -7,7 +8,7 @@ function toggleActive(element) {
     }
 }
 
-function clearActiveExcept(element) {
+function clearActiveExcept (element) {
     //Clear all options from parent, except the one provided
     var element_list = element.parentElement.children
     for (var i = 0; i < element_list.length; i++) {
@@ -17,7 +18,7 @@ function clearActiveExcept(element) {
     }
 }
 
-function populateDetails(item) {
+function populateDetails (item) {
     console.log("Populate details, get info from chain")
     console.log(item)
     //Query blockchain for data to fill element
@@ -54,7 +55,7 @@ function populateDetails(item) {
     })
 }
 
-function populateCarDetails(item) {
+function populateCarDetails (item) {
     console.log("Populate Car details, get info from chain")
     console.log(item)
     //Query blockchain for data to fill element
@@ -103,21 +104,21 @@ function populateCarDetails(item) {
     })
 }
 
-function clearDetails() {
+function clearDetails () {
     document.getElementById("details-address").textContent = ""
     document.getElementById("details-serial-num").textContent = ""
     document.getElementById("details-part-type").textContent = ""
     document.getElementById("details-creation-date").textContent = ""
 }
 
-function clearCarDetails() {
+function clearCarDetails () {
     document.getElementById("car-details-address").textContent = ""
     document.getElementById("car-details-serial-num").textContent = ""
     document.getElementById("car-details-parts").textContent = ""
     document.getElementById("car-details-creation-date").textContent = ""
 }
 
-function partListManager() {
+function partListManager () {
     toggleActive(this)
     clearActiveExcept(this)
 
@@ -129,12 +130,12 @@ function partListManager() {
     }
 }
 
-function carPartListManager() {
+function carPartListManager () {
     // Select item to use on car manufacturing
     toggleActive(this)
 }
 
-function carListManager() {
+function carListManager () {
     toggleActive(this)
     clearActiveExcept(this)
 
@@ -145,7 +146,7 @@ function carListManager() {
     }
 }
 
-function addItemToList(item, list_name, click_function) {
+function addItemToList (item, list_name, click_function) {
     console.log("Populate parts")
     //Receive item hash and add to list with some animations
     var element = document.createElement("a")
@@ -155,7 +156,7 @@ function addItemToList(item, list_name, click_function) {
     document.getElementById(list_name).appendChild(element)
 }
 
-function format_date() {
+function format_date () {
     var date = new Date()
     return ('0' + date.getHours().toString()).slice(-2) + ":" +
         ('0' + date.getMinutes().toString()).slice(-2) + ":" +
@@ -165,7 +166,7 @@ function format_date() {
         ('0' + date.getFullYear().toString()).slice(-2)
 }
 
-function getActivePart(parent) {
+function getActivePart (parent) {
     var item_list = document.getElementsByClassName("collection-item")
     for (var i = 0; i < item_list.length; i++) {
         if (item_list[i].parentElement.id == parent && item_list[i].classList.contains("active")) {
@@ -175,7 +176,7 @@ function getActivePart(parent) {
     return undefined
 }
 
-function getMultipleActivePart() {
+function getMultipleActivePart () {
     var active_array = []
     var item_list = document.getElementsByClassName("collection-item")
     for (var i = 0; i < item_list.length; i++) {
@@ -186,16 +187,19 @@ function getMultipleActivePart() {
     return active_array
 }
 
-async function init_web3() {
+async function init_web3 () {
     //Web3 init
     if (typeof web3 != 'undefined') {
-        web3 = new Web3(web3.currentProvider) // what Metamask injected 
+        web3 = new Web3(window.ethereum) // what Metamask injected 
+        console.log("Injecting metamask")
     } else {
         // Instantiate and set Ganache as your provider
         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        console.log("RPC from localhost")
     }
     //Load accounts
     window.accounts = await web3.eth.getAccounts()
+    console.log(window.accounts)
     console.log("Loaded accounts")
 
     // The interface definition for your smart contract (the ABI) 
@@ -353,7 +357,8 @@ async function init_web3() {
         }
     ])
 
-    window.pm.options.address = '0xE5987169978243A040fba66245E982D884108A70'
+    window.pm.options.address = '0x54Ff59D6b083daFEcA9e01A60a4Dab7232d56fF0'
+    // window.pm.options.address = '0x8eEf6fFC9444F4fedFEC0f9a5C9Ec6b4DA178bf2'
 
     window.co = new web3.eth.Contract([
         {
@@ -497,10 +502,11 @@ async function init_web3() {
             "signature": "0xac814490"
         }
     ])
-    window.co.options.address = "0x5F064EDfd972D3Cd9A129b8DFE96Ea7fEe5Dd000"
+    window.co.options.address = "0x1d70b7368c71F68cC30801829286D087e1C04E9f"
+    // window.co.options.address = "0xff244a89c8275d8210f3f612ab2d81070e7952B3"
 }
 
-async function getOwnerHistoryFromEvents(event, p_hash) {
+async function getOwnerHistoryFromEvents (event, p_hash) {
     return window.co.getPastEvents(event, { filter: { p: p_hash }, fromBlock: 0, toBlock: 'latest' }).then(
         function (result) {
             console.log(result);
@@ -514,7 +520,7 @@ async function getOwnerHistoryFromEvents(event, p_hash) {
     )
 }
 
-async function getOwnedItemsFromEvent(addr, event) {
+async function getOwnedItemsFromEvent (addr, event) {
     return window.co.getPastEvents(event, { filter: { account: addr }, fromBlock: 0, toBlock: 'latest' }).then(
         function (result) {
             console.log(result)
@@ -528,7 +534,7 @@ async function getOwnedItemsFromEvent(addr, event) {
     )
 }
 
-function populateOwnerDetails(owners, list_name) {
+function populateOwnerDetails (owners, list_name) {
     var owner_string = ""
     for (var i = 0; i < owners.length; i++) {
         owner_string += owners[i] + " "
@@ -536,7 +542,7 @@ function populateOwnerDetails(owners, list_name) {
     document.getElementById(list_name).textContent = owner_string
 }
 
-function dealerPartListManager() {
+function dealerPartListManager () {
     toggleActive(this)
     clearActiveExcept(this)
 
@@ -551,7 +557,7 @@ function dealerPartListManager() {
     }
 }
 
-function dealerProductListManager() {
+function dealerProductListManager () {
     toggleActive(this)
     clearActiveExcept(this)
 

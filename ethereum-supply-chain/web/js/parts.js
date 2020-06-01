@@ -1,3 +1,4 @@
+
 import { clearDetails, partListManager, carPartListManager, addItemToList, format_date, getActivePart, init_web3 } from "./utils.js"
 
 window.onload = async function () {
@@ -13,6 +14,7 @@ window.onload = async function () {
 
         var creation_date = format_date()
         console.log("Serial: " + serial + " Date:" + creation_date + "Part Type: " + part_type)
+        console.log(window.accounts)
 
         //Create part hash and send information to blockchain
         var part_sha = web3.utils.soliditySha3(window.accounts[0], web3.utils.fromAscii(serial),

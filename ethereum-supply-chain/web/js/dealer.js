@@ -1,3 +1,4 @@
+
 import { init_web3, getOwnedItemsFromEvent, dealerPartListManager, dealerProductListManager, addItemToList } from "./utils.js"
 
 window.onload = async function () {

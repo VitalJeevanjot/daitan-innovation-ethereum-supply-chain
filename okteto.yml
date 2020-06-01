@@ -1,7 +1,10 @@
 name: daitan-eth-scm
 image: registry.cloud.okteto.net/sawtooth-genievot/daitan-eth-scm:okteto
 command:
-- bash
+  - ./start.sh
 workdir: /usr/src/app
 forward:
+  - 8080:8080
   - 8545:8545
+persistentVolume:
+  enabled: true

@@ -1,0 +1,7 @@
+name: ganache-cli
+image: registry.cloud.okteto.net/genievot/ganache:cli
+command: ["ganache-cli", "-m 'define actress exhibit green grocery grape caution floor mind reunion latin tired'"]
+forward:
+  - 8545:8545
+workdir: /usr/src/app
+    

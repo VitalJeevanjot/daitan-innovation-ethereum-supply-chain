@@ -1,3 +1,4 @@
+
 import { carListManager, addItemToList, format_date, init_web3, carPartListManager, getMultipleActivePart, getActivePart, clearCarDetails, getOwnerHistoryFromEvents, getOwnedItemsFromEvent } from "./utils.js"
 
 

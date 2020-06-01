@@ -1,0 +1,23 @@
+name: daitan-eth-scm
+services:
+  daitan-eth-scm:
+    public: false
+    image: registry.cloud.okteto.net/sawtooth-genievot/daitan-eth-scm:okteto
+    ports:
+      - 8080
+    command: bash
+    resources:
+      cpu: 100m
+      memory: 128Mi
+
+  worker:
+    ports:
+      - 8545
+    image: registry.cloud.okteto.net/sawtooth-genievot/daitan-eth-scm:okteto
+    resources:
+      cpu: 100m
+      memory: 128Mi
+      storage: 1Gi
+    command: ["ganache-cli", "-m 'define actress exhibit green grocery grape caution floor mind reunion latin tired'"]
+    volumes:
+      - /data

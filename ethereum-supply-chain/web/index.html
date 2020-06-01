@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supply Chain Demo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.33/dist/web3.min.js"></script>
     <script type="module" src="./js/parts.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
@@ -32,7 +32,8 @@
         </div>
         <div class="row">
             <div class="col s12">
-                <label>Serial Number: </label><input type="text" id="create-serial-number" placeholder="Part Serial Number">
+                <label>Serial Number: </label><input type="text" id="create-serial-number"
+                    placeholder="Part Serial Number">
                 <label>Part Type: </label>
                 <select id="create-part-type" class="browser-default">
                     <option>Wheel</option>
@@ -59,7 +60,8 @@
                     <label>Creation Date:</label>
                     <p id="details-creation-date"></p>
                     <input id="part-change-ownership-input" type="text" placeholder="Insert address">
-                    <button id="part-change-ownership-btn" class="waves-effect waves-light btn">Change Ownership</button>
+                    <button id="part-change-ownership-btn" class="waves-effect waves-light btn">Change
+                        Ownership</button>
                 </div>
             </div>
         </div>
