@@ -1,4 +1,3 @@
-
 function toggleActive (element) {
     //Toggle class
     if (element.classList.contains("active")) {
@@ -201,7 +200,6 @@ async function init_web3 () {
     window.accounts = await web3.eth.getAccounts()
     console.log(window.accounts)
     console.log("Loaded accounts")
-
     // The interface definition for your smart contract (the ABI) 
     window.pm = new web3.eth.Contract([
         {

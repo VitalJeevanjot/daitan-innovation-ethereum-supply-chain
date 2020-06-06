@@ -8,33 +8,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.33/dist/web3.min.js"></script>
+    <link rel="stylesheet" href="css/custom.css">
     <script type="module" src="./js/dealer.js"></script>
 
 </head>
 
 <body>
     <div class="container">
-        <nav class="teal">
-            <div class="nav-wrapper">
+        <nav class="red darken-4">
+            <div class="nav-wrapper" style="display: flex; justify-content: center;">
                 <!-- <a href="#" class="brand-logo right">Logo</a> -->
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="index.html">Parts Factory</a></li>
-                    <li><a href="car_factory.html">Car Factory</a></li>
+                    <li><a href="car_factory.html">Computer Factory</a></li>
                     <li><a href="dealer.html">Dealer</a></li>
                 </ul>
             </div>
         </nav>
         <div class="row">
+            <h2 style="text-align: center;">Dealer</h2>
             <div class="col s6">
-                <h2>Dealer</h2>
                 <label>Address: </label>
-                <p id="dealer-address">0x9F61DD37328502Dd8d6bE5d7A0B0af466986cbF7</p>
+                <p id="dealer-address">0xBa3153F4Eba4d48c6B4eB6A98374F1E635575912</p>
             </div>
         </div>
         <div class="row">
             <div class="col s6">
                 <div id="car-history" class="collection with-header">
-                    <p class="collection-header">Cars History</p>
+                    <p class="collection-header">Computers History</p>
                 </div>
                 <div id="car-details">
                     <label>Owner History: </label>

@@ -8,26 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.33/dist/web3.min.js"></script>
+    <link rel="stylesheet" href="css/custom.css">
     <script type="module" src="./js/car.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <nav class="teal">
-            <div class="nav-wrapper">
+        <nav class="red darken-4">
+            <div class="nav-wrapper" style="display: flex; justify-content: center;">
                 <!-- <a href="#" class="brand-logo right">Logo</a> -->
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="index.html">Parts Factory</a></li>
-                    <li><a href="car_factory.html">Car Factory</a></li>
+                    <li><a href="car_factory.html">Computer Factory</a></li>
                     <li><a href="dealer.html">Dealer</a></li>
                 </ul>
             </div>
         </nav>
-        <h2>Car Factory</h2>
+        <h2 style="text-align: center;">Computer Factory</h2>
         <div class="row">
             <div class="col s6">
                 <label>Address: </label>
-                <p id="car-factory-address">0xcE94908BFF18F5D0a58042325e73Ca3caF8285cE</p>
+                <p id="car-factory-address">0x11d5e6D536B48356b36F3418771a855294771D62</p>
             </div>
         </div>
         <div class="row">
@@ -37,14 +38,15 @@
                 </div>
             </div>
             <div class="col s6">
-                <label>Serial Number: </label><input type="text" id="create-car-serial-number" placeholder="Car Serial Number">
-                <button id="build-car" class="waves-effect waves-light btn">Build Car</button>
+                <label>Serial Number: </label><input type="text" id="create-car-serial-number"
+                    placeholder="Computer Serial Number">
+                <button id="build-car" class="waves-effect waves-light btn black">Build Computer</button>
             </div>
         </div>
         <div class="row">
             <div class="col s6">
                 <div id="car-list" class="collection with-header">
-                    <p class="collection-header">Cars Owned</p>
+                    <p class="collection-header">Computer Owned</p>
                 </div>
             </div>
             <div class="col s6">
@@ -58,7 +60,8 @@
                     <label>Creation Date:</label>
                     <p id="car-details-creation-date"></p>
                     <input id="car-change-ownership-input" type="text" placeholder="Insert address">
-                    <button id="car-change-ownership-btn" class="waves-effect waves-light btn">Change Ownership</button>
+                    <button id="car-change-ownership-btn" class="waves-effect waves-light btn black">Change
+                        Ownership</button>
                 </div>
             </div>
         </div>

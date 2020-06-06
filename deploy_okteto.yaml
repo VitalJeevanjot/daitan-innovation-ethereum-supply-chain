@@ -1,0 +1,15 @@
+name: daitan-eth-scm-prod
+image: registry.cloud.okteto.net/sawtooth-genievot/daitan-eth-scm:okteto
+command:
+  - ./start.sh
+workdir: /usr/src/app
+forward:
+  - 8080:8080
+  - 8545:8545
+push:
+  context: .
+  dockerfile: deploy.Dockerfile
+  target: prod
+
+persistentVolume:
+  enabled: true

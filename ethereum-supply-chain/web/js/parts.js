@@ -1,9 +1,18 @@
 
-import { clearDetails, partListManager, carPartListManager, addItemToList, format_date, getActivePart, init_web3 } from "./utils.js"
-
+import { clearDetails, partListManager, carPartListManager, addItemToList, format_date, getActivePart, init_web3, getOwnedItemsFromEvent } from "./utils.js"
+console.log("hello")
 window.onload = async function () {
 
     var x = await init_web3()
+
+    console.log("Parts rendering")
+    getOwnedItemsFromEvent(window.accounts[0], 'TransferPartOwnership').then((parts) => {
+        console.log("part Events")
+        console.log(parts)
+        for (var i = 0; i < parts.length; i++) {
+            addItemToList(parts[i], "part-list", partListManager)
+        }
+    })
 
     document.getElementById("build-part").addEventListener("click", function () {
         console.log("Create Part")

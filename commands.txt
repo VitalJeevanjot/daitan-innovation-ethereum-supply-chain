@@ -1,0 +1,4 @@
+to deploy production server:
+
+okteto push --file deploy_okteto.yaml
+

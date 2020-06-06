@@ -6,28 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supply Chain Demo</title>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.33/dist/web3.min.js"></script>
-    <script type="module" src="./js/parts.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/custom.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <nav class="teal">
-            <div class="nav-wrapper">
+        <nav class="red darken-4">
+            <div class="nav-wrapper" style="display: flex; justify-content: center;">
                 <!-- <a href="#" class="brand-logo right">Logo</a> -->
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="index.html">Parts Factory</a></li>
-                    <li><a href="car_factory.html">Car Factory</a></li>
+                    <li><a href="car_factory.html">Computer Factory</a></li>
                     <li><a href="dealer.html">Dealer</a></li>
                 </ul>
             </div>
         </nav>
-        <h2>Part Factory</h2>
+        <h2 style="text-align: center;">Parts Factory</h2>
         <div class="row">
             <div class="col s6">
                 <label>Address: </label>
-                <p id="part-factory-address">0x84C4770F756B1dF55C998d074F42483FE1456A92</p>
+                <p id="part-factory-address">0xBa3153F4Eba4d48c6B4eB6A98374F1E635575912</p>
             </div>
         </div>
         <div class="row">
@@ -36,11 +36,19 @@
                     placeholder="Part Serial Number">
                 <label>Part Type: </label>
                 <select id="create-part-type" class="browser-default">
-                    <option>Wheel</option>
-                    <option>Engine</option>
-                    <option>Transmission</option>
+                    <option>Case</option>
+                    <option>CPU</option>
+                    <option>GPU</option>
+                    <option>RAM</option>
+                    <option>SSD, NVME, HDD</option>
+                    <option>Cooling</option>
+                    <option>PSU</option>
+                    <option>Monitor</option>
+                    <option>OS</option>
+                    <option>Input Devices</option>
                 </select>
-                <button id="build-part" class="waves-effect waves-light btn">Build Part</button>
+                <button id="build-part" class="waves-effect waves-light btn black" style="margin-top: 8px;">Build
+                    Part</button>
             </div>
         </div>
         <div class="row">
@@ -60,12 +68,13 @@
                     <label>Creation Date:</label>
                     <p id="details-creation-date"></p>
                     <input id="part-change-ownership-input" type="text" placeholder="Insert address">
-                    <button id="part-change-ownership-btn" class="waves-effect waves-light btn">Change
+                    <button id="part-change-ownership-btn" class="waves-effect waves-light btn black">Change
                         Ownership</button>
                 </div>
             </div>
         </div>
     </div>
+    <script type="module" src="./js/parts.js"></script>
 </body>
 
 </html>

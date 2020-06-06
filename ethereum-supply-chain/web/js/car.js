@@ -2,7 +2,6 @@
 import { carListManager, addItemToList, format_date, init_web3, carPartListManager, getMultipleActivePart, getActivePart, clearCarDetails, getOwnerHistoryFromEvents, getOwnedItemsFromEvent } from "./utils.js"
 
 
-
 window.onload = async function () {
 
     var x = await init_web3()
@@ -16,6 +15,15 @@ window.onload = async function () {
     //         addItemToList(addr, "car-part-list", carPartListManager)
     //     }
     // })
+
+    //Get products
+    getOwnedItemsFromEvent(window.accounts[0], 'TransferProductOwnership').then((products) => {
+        console.log("prod Events")
+        console.log(products)
+        for (var i = 0; i < products.length; i++) {
+            addItemToList(products[i], "car-list", carListManager)
+        }
+    })
 
     //Get all the parts that belonged to this factory and then check the ones that still do
     var parts = await getOwnedItemsFromEvent(window.accounts[0], 'TransferPartOwnership')
@@ -47,8 +55,9 @@ window.onload = async function () {
             // }
             var creation_date = format_date()
 
-            console.log("Create car with params")
+            console.log("Create computer with params")
             console.log(serial)
+            console.log(part_array)
             console.log(part_array)
             console.log(creation_date)
             //Finally, build the car
