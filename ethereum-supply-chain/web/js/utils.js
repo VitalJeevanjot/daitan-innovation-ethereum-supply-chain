@@ -54,8 +54,8 @@ function populateDetails (item) {
     })
 }
 
-function populateCarDetails (item) {
-    console.log("Populate Car details, get info from chain")
+function populatecomputerDetails (item) {
+    console.log("Populate computer details, get info from chain")
     console.log(item)
     //Query blockchain for data to fill element
     window.pm.methods.products(item).call({ from: window.accounts[0] }, function (error, prod_info) {
@@ -64,9 +64,9 @@ function populateCarDetails (item) {
         else {
             console.log("Product info")
             console.log(prod_info)
-            document.getElementById("car-details-address").textContent = prod_info["manufacturer"]
-            document.getElementById("car-details-serial-num").textContent = prod_info["serial_number"]
-            document.getElementById("car-details-creation-date").textContent = prod_info["creation_date"]
+            document.getElementById("computer-details-address").textContent = prod_info["manufacturer"]
+            document.getElementById("computer-details-serial-num").textContent = prod_info["serial_number"]
+            document.getElementById("computer-details-creation-date").textContent = prod_info["creation_date"]
 
             //Get parts too
             window.pm.methods.getParts(item).call({ from: window.accounts[0] }, function (error, result) {
@@ -77,7 +77,7 @@ function populateCarDetails (item) {
                     for (var i = 0; i < result.length; i++) {
                         parts_str += result[i] + "\n"
                     }
-                    document.getElementById("car-details-parts").textContent = parts_str
+                    document.getElementById("computer-details-parts").textContent = parts_str
 
                     //Check if the product is already registered, and do it otherwise
                     window.co.methods.currentProductOwner(item).call({ from: window.accounts[0] }, function (error, result) {
@@ -91,7 +91,7 @@ function populateCarDetails (item) {
                                     if (error) {
                                         console.log(error)
                                     } else {
-                                        console.log("Car Ownership added")
+                                        console.log("computer Ownership added")
                                     }
                                 })
                             }
@@ -110,11 +110,11 @@ function clearDetails () {
     document.getElementById("details-creation-date").textContent = ""
 }
 
-function clearCarDetails () {
-    document.getElementById("car-details-address").textContent = ""
-    document.getElementById("car-details-serial-num").textContent = ""
-    document.getElementById("car-details-parts").textContent = ""
-    document.getElementById("car-details-creation-date").textContent = ""
+function clearcomputerDetails () {
+    document.getElementById("computer-details-address").textContent = ""
+    document.getElementById("computer-details-serial-num").textContent = ""
+    document.getElementById("computer-details-parts").textContent = ""
+    document.getElementById("computer-details-creation-date").textContent = ""
 }
 
 function partListManager () {
@@ -129,19 +129,19 @@ function partListManager () {
     }
 }
 
-function carPartListManager () {
-    // Select item to use on car manufacturing
+function computerPartListManager () {
+    // Select item to use on computer manufacturing
     toggleActive(this)
 }
 
-function carListManager () {
+function computerListManager () {
     toggleActive(this)
     clearActiveExcept(this)
 
     if (this.classList.contains("active")) {
-        populateCarDetails(this.textContent)
+        populatecomputerDetails(this.textContent)
     } else {
-        clearCarDetails()
+        clearcomputerDetails()
     }
 }
 
@@ -179,7 +179,7 @@ function getMultipleActivePart () {
     var active_array = []
     var item_list = document.getElementsByClassName("collection-item")
     for (var i = 0; i < item_list.length; i++) {
-        if (item_list[i].parentElement.id == "car-part-list" && item_list[i].classList.contains("active")) {
+        if (item_list[i].parentElement.id == "computer-part-list" && item_list[i].classList.contains("active")) {
             active_array.push(item_list[i])
         }
     }
@@ -561,7 +561,7 @@ function dealerProductListManager () {
 
     if (this.classList.contains("active")) {
         getOwnerHistoryFromEvents('TransferProductOwnership', this.textContent).then((owners) => {
-            populateOwnerDetails(owners, "car-owners")
+            populateOwnerDetails(owners, "computer-owners")
         })
     } else {
         clearOwnerDetails()
@@ -569,8 +569,8 @@ function dealerProductListManager () {
 }
 
 export {
-    toggleActive, clearActiveExcept, populateDetails, populateCarDetails, clearDetails,
-    clearCarDetails, partListManager, carPartListManager, carListManager, addItemToList,
+    toggleActive, clearActiveExcept, populateDetails, populatecomputerDetails, clearDetails,
+    clearcomputerDetails, partListManager, computerPartListManager, computerListManager, addItemToList,
     format_date, getActivePart, init_web3, getMultipleActivePart, getOwnerHistoryFromEvents, getOwnedItemsFromEvent,
     dealerPartListManager, dealerProductListManager
 };

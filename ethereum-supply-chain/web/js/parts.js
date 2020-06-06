@@ -1,5 +1,5 @@
 
-import { clearDetails, partListManager, carPartListManager, addItemToList, format_date, getActivePart, init_web3, getOwnedItemsFromEvent } from "./utils.js"
+import { clearDetails, partListManager, computerPartListManager, addItemToList, format_date, getActivePart, init_web3, getOwnedItemsFromEvent } from "./utils.js"
 console.log("hello")
 window.onload = async function () {
 

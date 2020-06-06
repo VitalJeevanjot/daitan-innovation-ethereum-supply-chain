@@ -1,13 +1,13 @@
 # Ethereum Supply Chain Demo
 
 This project is a simple supply chain application that records transactions on ethereum.
-It intends to be very simple and generic, and we base the main example on car manufacturing.
+It intends to be very simple and generic, and we base the main example on computer manufacturing.
 The functionality is provided by two Smart Contracts:
 
 * ProductManagement - Register products and keep their data
 * ChangeOwnership - Tracks ownership of each product
 
-We have a simple web interface to interact with the contracts that assume three roles: Parts Factory, Car Factory and Dealers.
+We have a simple web interface to interact with the contracts that assume three roles: Parts Factory, computer Factory and Dealers.
 Each has its own view (page) and we keep them separated to better demonstrate how different parties could use the contracts.
 
 ## Setup and Running
@@ -50,16 +50,16 @@ Part Factory:
 * Click on owned parts to register them
 * Fill next party address and click on "Change Ownership" to send it to them
 
-Car Factory:
+computer Factory:
 
-* Automatically fill the parts and cars owned from the blockchain events
-* Clicking on 6 parts and filling the car serial number you can build a car
-* Clicking on a car registers them
-* Filling the next party address you may send a car and the respective parts
+* Automatically fill the parts and computers owned from the blockchain events
+* Clicking on 6 parts and filling the computer serial number you can build a computer
+* Clicking on a computer registers them
+* Filling the next party address you may send a computer and the respective parts
 
 Dealers:
 
-* Has status page for his own parts and cars
+* Has status page for his own parts and computers
 
 ## Observations
 
