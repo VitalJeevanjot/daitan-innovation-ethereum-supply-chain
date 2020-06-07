@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway/Raleway-Regular.ttf');  
+}
+
 .container {
   margin: 0 auto;
   max-width: 1280px;
@@ -13,3 +18,30 @@
     width: 95%;
   }
 }
+
+.address{
+  font-family: "Raleway";
+  text-align: center;
+  font-size: 2rem;
+}
+
+
+/* tabs */
+.tabs .tab a{
+    color:rgb(255, 255, 255) !important;
+} /*Black color to the text*/
+
+.tabs .tab a:hover {
+    color:rgb(231, 231, 231) !important;
+    background-color: rgba(58, 58, 58, 0.979) !important;
+} /*Text color on hover*/
+
+.tabs .tab a.active {
+    background-color:rgb(56, 56, 56) !important;
+    color:rgb(255, 255, 255) !important;
+} /*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    color:rgb(255, 255, 255) !important;
+    background-color: rgba(155, 0, 0, 0.993)  !important;
+} /*Color of underline*/

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,46 +11,44 @@
     <link rel="stylesheet" href="css/custom.css">
     <script type="module" src="./js/dealer.js"></script>
 
-</head>
+</head> -->
 
-<body>
-    <div class="container">
-        <nav class="red darken-4">
+<!-- <body style="font-family: Raleway;"> -->
+<div class="container">
+    <!-- <nav class="red darken-4">
             <div class="nav-wrapper" style="display: flex; justify-content: center;">
-                <!-- <a href="#" class="brand-logo right">Logo</a> -->
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="index.html">Parts Factory</a></li>
-                    <li><a href="computer_factory.html">Computer Factory</a></li>
+                    <li><a href="parts.html">Parts Factory</a></li>
+                    <li><a href="computer.html">Computer Factory</a></li>
                     <li><a href="dealer.html">Dealer</a></li>
                 </ul>
             </div>
-        </nav>
-        <div class="row">
-            <h2 style="text-align: center;">Dealer</h2>
-            <div class="col s6">
-                <label>Address: </label>
-                <p id="dealer-address">0xBa3153F4Eba4d48c6B4eB6A98374F1E635575912</p>
+        </nav> -->
+    <div class="row">
+        <h2 style="text-align: center; padding-top: 50px;">Dealer</h2>
+        <!-- <label>Address: </label> -->
+        <p class="address" id="dealer-address"></p>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <div id="computer-history" class="collection with-header">
+                <p class="collection-header">Computers History</p>
+            </div>
+            <div id="computer-details">
+                <label>Owner History: </label>
+                <p id="computer-owners"></p>
             </div>
         </div>
-        <div class="row">
-            <div class="col s6">
-                <div id="computer-history" class="collection with-header">
-                    <p class="collection-header">Computers History</p>
-                </div>
-                <div id="computer-details">
-                    <label>Owner History: </label>
-                    <p id="computer-owners"></p>
-                </div>
+        <div class="col s6">
+            <div id="parts-history" class="collection with-header">
+                <p class="collection-header">Parts History</p>
             </div>
-            <div class="col s6">
-                <div id="parts-history" class="collection with-header">
-                    <p class="collection-header">Parts History</p>
-                </div>
-                <div id="parts-details">
-                    <label>Owner History: </label>
-                    <p id="part-owners"></p>
-                </div>
+            <div id="parts-details">
+                <label>Owner History: </label>
+                <p id="part-owners"></p>
             </div>
         </div>
     </div>
-</body>
+</div>
+<!-- <script type="module" src="./js/dealer.js"></script> -->
+<!-- </body> -->

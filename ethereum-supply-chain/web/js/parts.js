@@ -1,11 +1,13 @@
+console.warn('AGAIN??')
+import { clearDetails, partListManager, computerPartListManager, addItemToList, format_date, getActivePart, init_web3, getOwnedItemsFromEvent, updateAddress } from "./utils.js"
+var x = init_web3().then(() => {
 
-import { clearDetails, partListManager, computerPartListManager, addItemToList, format_date, getActivePart, init_web3, getOwnedItemsFromEvent } from "./utils.js"
-console.log("hello")
-window.onload = async function () {
 
-    var x = await init_web3()
 
     console.log("Parts rendering")
+    var address_text = document.getElementById('part-factory-address')
+    updateAddress(address_text)
+
     getOwnedItemsFromEvent(window.accounts[0], 'TransferPartOwnership').then((parts) => {
         console.log("part Events")
         console.log(parts)
@@ -62,4 +64,4 @@ window.onload = async function () {
 
         }
     })
-}
+})

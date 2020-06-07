@@ -1,40 +1,44 @@
 
-import { init_web3, getOwnedItemsFromEvent, dealerPartListManager, dealerProductListManager, addItemToList } from "./utils.js"
+import { init_web3, getOwnedItemsFromEvent, dealerPartListManager, dealerProductListManager, addItemToList, updateAddress } from "./utils.js"
 
-window.onload = async function () {
 
-    var x = await init_web3()
+$(document).ready(function () {
+    var x = init_web3().then(() => {
 
-    //First, get all the parts and products that belong to this dealer
-    getOwnedItemsFromEvent(window.accounts[0], 'TransferPartOwnership').then((parts) => {
-        console.log("part Events")
-        console.log(parts)
-        for (var i = 0; i < parts.length; i++) {
-            addItemToList(parts[i], "parts-history", dealerPartListManager)
-        }
+        var address_text = document.getElementById('dealer-address')
+        updateAddress(address_text)
+
+        //First, get all the parts and products that belong to this dealer
+        getOwnedItemsFromEvent(window.accounts[0], 'TransferPartOwnership').then((parts) => {
+            console.log("part Events")
+            console.log(parts)
+            for (var i = 0; i < parts.length; i++) {
+                addItemToList(parts[i], "parts-history", dealerPartListManager)
+            }
+        })
+
+        //Then, get products
+        getOwnedItemsFromEvent(window.accounts[0], 'TransferProductOwnership').then((products) => {
+            console.log("prod Events")
+            console.log(products)
+            for (var i = 0; i < products.length; i++) {
+                addItemToList(products[i], "computer-history", dealerProductListManager)
+            }
+        })
+
+        // document.getElementById("get-history").addEventListener("click", function () {
+        //     console.log("Get computer History")
+
+
+
+        //     var addr = document.getElementById("part-addr").value
+
+        //     if (addr != "") {
+        //         addItemToList(addr, "computer-part-list", computerPartListManager)
+        //     }
+        // })
     })
-
-    //Then, get products
-    getOwnedItemsFromEvent(window.accounts[0], 'TransferProductOwnership').then((products) => {
-        console.log("prod Events")
-        console.log(products)
-        for (var i = 0; i < products.length; i++) {
-            addItemToList(products[i], "computer-history", dealerProductListManager)
-        }
-    })
-
-    // document.getElementById("get-history").addEventListener("click", function () {
-    //     console.log("Get computer History")
-
-
-
-    //     var addr = document.getElementById("part-addr").value
-
-    //     if (addr != "") {
-    //         addItemToList(addr, "computer-part-list", computerPartListManager)
-    //     }
-    // })
-}
+})
 
 //0xc171729eaa58806df3704aaca30e71fbe811eec2889f4ca8e9f8a457de640278
 //0x831c1b222e57853205b6aa7decfca1c39675070fed01f7bc2b693d47757d7eee

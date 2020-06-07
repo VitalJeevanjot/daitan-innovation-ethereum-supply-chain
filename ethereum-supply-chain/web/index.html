@@ -1,80 +1,41 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supply Chain Demo</title>
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.33/dist/web3.min.js"></script>
+    <title>Supply Chain</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="css/custom.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.33/dist/web3.min.js"></script>
+
+
 </head>
 
 <body>
-    <div class="container">
-        <nav class="red darken-4">
-            <div class="nav-wrapper" style="display: flex; justify-content: center;">
-                <!-- <a href="#" class="brand-logo right">Logo</a> -->
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="index.html">Parts Factory</a></li>
-                    <li><a href="computer_factory.html">Computer Factory</a></li>
-                    <li><a href="dealer.html">Dealer</a></li>
-                </ul>
-            </div>
-        </nav>
-        <h2 style="text-align: center;">Parts Factory</h2>
-        <div class="row">
-            <div class="col s6">
-                <label>Address: </label>
-                <p id="part-factory-address">0xBa3153F4Eba4d48c6B4eB6A98374F1E635575912</p>
-            </div>
+    <div class="row" style="padding-top: 5px;">
+        <div class="col s12" id="#products">
+            <ul class="tabs" style="background-color: #202020;">
+                <li class="tab col s4" id="parts_view"><a href="#parts">
+                        Parts Factory
+                    </a>
+                </li>
+                <li class="tab col s4" id="products_view"><a href="#products">
+                        Computer Factory
+                    </a></li>
+                <li class="tab col s4" id="dealer_view"><a href="#dealer">
+                        Dealer
+                    </a></li>
+            </ul>
+
+            <!-- <div class="rectangle"></div> -->
         </div>
-        <div class="row">
-            <div class="col s12">
-                <label>Serial Number: </label><input type="text" id="create-serial-number"
-                    placeholder="Part Serial Number">
-                <label>Part Type: </label>
-                <select id="create-part-type" class="browser-default">
-                    <option>Case</option>
-                    <option>CPU</option>
-                    <option>GPU</option>
-                    <option>RAM</option>
-                    <option>SSD, NVME, HDD</option>
-                    <option>Cooling</option>
-                    <option>PSU</option>
-                    <option>Monitor</option>
-                    <option>OS</option>
-                    <option>Input Devices</option>
-                </select>
-                <button id="build-part" class="waves-effect waves-light btn black" style="margin-top: 8px;">Build
-                    Part</button>
-            </div>
+        <div id="pageContent">
         </div>
-        <div class="row">
-            <div id="part-list" class="collection with-header">
-                <p class="collection-header">Parts Owned</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12">
-                <div id="part-list-details">
-                    <label>Manufacturer Address:</label>
-                    <p id="details-address"></p>
-                    <label>Serial Number:</label>
-                    <p id="details-serial-num"></p>
-                    <label>Part Type:</label>
-                    <p id="details-part-type"></p>
-                    <label>Creation Date:</label>
-                    <p id="details-creation-date"></p>
-                    <input id="part-change-ownership-input" type="text" placeholder="Insert address">
-                    <button id="part-change-ownership-btn" class="waves-effect waves-light btn black">Change
-                        Ownership</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="module" src="./js/parts.js"></script>
+        <div id="scripts"></div>
 </body>
+
+<script type="text/javascript" src="js/index.js"></script>
 
 </html>

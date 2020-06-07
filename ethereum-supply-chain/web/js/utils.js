@@ -504,7 +504,7 @@ async function init_web3 () {
     // window.co.options.address = "0xff244a89c8275d8210f3f612ab2d81070e7952B3"
 }
 
-async function getOwnerHistoryFromEvents (event, p_hash) {
+function getOwnerHistoryFromEvents (event, p_hash) {
     return window.co.getPastEvents(event, { filter: { p: p_hash }, fromBlock: 0, toBlock: 'latest' }).then(
         function (result) {
             console.log(result);
@@ -518,7 +518,7 @@ async function getOwnerHistoryFromEvents (event, p_hash) {
     )
 }
 
-async function getOwnedItemsFromEvent (addr, event) {
+function getOwnedItemsFromEvent (addr, event) {
     return window.co.getPastEvents(event, { filter: { account: addr }, fromBlock: 0, toBlock: 'latest' }).then(
         function (result) {
             console.log(result)
@@ -568,9 +568,14 @@ function dealerProductListManager () {
     }
 }
 
+function updateAddress (elem) {
+    console.log("address text changing")
+    elem.innerText = window.accounts[0]
+}
+
 export {
     toggleActive, clearActiveExcept, populateDetails, populatecomputerDetails, clearDetails,
     clearcomputerDetails, partListManager, computerPartListManager, computerListManager, addItemToList,
     format_date, getActivePart, init_web3, getMultipleActivePart, getOwnerHistoryFromEvents, getOwnedItemsFromEvent,
-    dealerPartListManager, dealerProductListManager
+    dealerPartListManager, dealerProductListManager, updateAddress
 };
